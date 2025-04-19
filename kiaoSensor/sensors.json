@@ -1,5 +1,5 @@
 {
-    "version": "0.0.2",
+    "version": "0.0.3",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -17,7 +17,7 @@
                 "getBaudrate": ["0x00"],
                 "setBaudrate": ["0x00"],
                 "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x01"],
-                "getCtrl": ["0xff", "0x0f", "0x00", "0x00", "0x00", "0x08","0x01","0x00"]
+                "getCtrl": ["0xff", "0x0f", "0x00", "0x00", "0x00", "0x08","0x01","0xff"]
             }
         },
         "relay16": {
@@ -27,7 +27,7 @@
             "supportRate": [9600],
             "divisor": [16],
             "index": [1],
-            "bitLen": [4],
+            "bitLen": [2],
             "valueType": ["TYPE_RELAY_16"],
             "max": 4,
             "cmd": {
@@ -36,7 +36,7 @@
                 "getBaudrate": ["0x00"],
                 "setBaudrate": ["0x00"],
                 "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x02"],
-                "getCtrl": ["0xff", "0x0f", "0x00", "0x00", "0x00", "0x10","0x02","0x00"]
+                "getCtrl": ["0xff", "0x0f", "0x00", "0x00", "0x00", "0x10","0x02","0xff","0xff"]
             }
         },
         "env4in1": {
@@ -85,7 +85,7 @@
             "divisor": [10, 10, 1000],
             "index": [1, 2, 3],
             "bitLen": [2, 2, 2],
-            "valueType": ["TYPE_HUMD", "TYPE_TEMP", "TYPE_SoilEC"],
+            "valueType": ["TYPE_SoilTEMP", "TYPE_SoilHUMD", "TYPE_SoilEC"],
             "max": 3,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
@@ -104,7 +104,7 @@
             "divisor": [10, 10, 1000],
             "index": [1, 2, 3],
             "bitLen": [2, 2, 2],
-            "valueType": ["TYPE_TEMP", "TYPE_HUMD", "TYPE_SoilEC"],
+            "valueType": ["TYPE_SoilHUMD", "TYPE_SoilTEMP", "TYPE_SoilEC"],
             "max": 3,
             "cmd": {
                 "getAddress": ["0xfe", "0x03", "0x00", "0x30", "0x00", "0x01"],
