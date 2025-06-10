@@ -1,5 +1,5 @@
 {
-    "version": "0.0.3",
+    "version": "0.0.5",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -86,7 +86,7 @@
             "index": [1, 2, 3],
             "bitLen": [2, 2, 2],
             "valueType": ["TYPE_SoilTEMP", "TYPE_SoilHUMD", "TYPE_SoilEC"],
-            "max": 3,
+            "max": 6,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
@@ -105,7 +105,7 @@
             "index": [1, 2, 3],
             "bitLen": [2, 2, 2],
             "valueType": ["TYPE_SoilHUMD", "TYPE_SoilTEMP", "TYPE_SoilEC"],
-            "max": 3,
+            "max": 6,
             "cmd": {
                 "getAddress": ["0xfe", "0x03", "0x00", "0x30", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x00", "0x30", "0x00", "0xff"],
@@ -115,22 +115,22 @@
                 "getCtrl": ["0x00"]
             }
         },
-        "xm8189": {
-            "name": "xm8189",
+        "wind": {
+            "name": "wind",
             "addr": "0x30",
             "len": 2,
-            "supportRate": [0, 2400, 4800, 9600],
-            "divisor": [100, 100],
+            "supportRate": [2400, 4800, 9600],
+            "divisor": [100, 1],
             "index": [1, 2],
             "bitLen": [2, 2],
             "valueType": ["TYPE_WDSD", "TYPE_WDIR"],
             "max": 3,
             "cmd": {
-                "getAddress": ["0xFA", "0x03", "0x00", "0x66", "0x00", "0x01"],
-                "setAddress": ["0xff", "0x06", "0x00", "0x66", "0x00", "0xff"],
-                "getBaudrate": ["0xff", "0x03", "0x00", "0x67", "0x00", "0x0A"],
-                "setBaudrate": ["0xff", "0x06", "0x00", "0x67", "0x00", "0x0A"],
-                "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x02"],
+                "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
+                "getBaudrate": ["0x01", "0x03", "0x07", "0xD1", "0x00", "0x01"],
+                "setBaudrate": ["0x01", "0x06", "0x07", "0xD1", "0x00", "0x02"],
+                "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x02"],
                 "getCtrl": ["0x00"]
             }
         },
@@ -284,6 +284,44 @@
                 "setBaudrate": ["0xff", "0x06", "0x07", "0xD1", "0x00", "0xff"],
                 "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x01"],
                 "getCtrl": ["0x00"]
+            }
+        },
+        "dac10v4": {
+            "name": "dac10v4",
+            "addr": "0x80",
+            "len": 4,
+            "supportRate": [1200, 2400, 4800, 9600],
+            "divisor": [1000,1000,1000,1000],
+            "index": [1,2,3,4],
+            "bitLen": [2,2,2,2],
+            "valueType": ["TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V"],
+            "max": 1,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x01", "0x00", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x01", "0x00", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x01", "0x02", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x01", "0x02", "0x00", "0x01"],
+                "getData": ["0x01", "0x03", "0x00", "0x20", "0x00", "0x04"],
+                "getCtrl": ["0xff", "0x10", "0x00", "0x50", "0x00" ,"0x01", "0x02", "0xff", "0xff"]
+            }
+        },
+        "dac10v16": {
+            "name": "dac10v16",
+            "addr": "0x81",
+            "len": 1,
+            "supportRate": [1200, 2400, 4800, 9600],
+            "divisor": [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000],
+            "index": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16],
+            "bitLen": [2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2],
+            "valueType": ["TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V","TYPE_DAC10V"],
+            "max": 1,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x01", "0x00", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x01", "0x00", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x01", "0x02", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x01", "0x02", "0x00", "0x01"],
+                "getData": ["0x01", "0x03", "0x00", "0x20", "0x00", "0x10"],
+                "getCtrl": ["0xff", "0x10", "0x00", "0x50", "0x00" ,"0x01", "0x02", "0xff", "0xff"]
             }
         }
     }
