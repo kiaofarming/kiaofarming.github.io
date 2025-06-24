@@ -1,5 +1,5 @@
 {
-    "version": "0.0.5",
+    "version": "0.0.6",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -48,7 +48,7 @@
             "index": [2, 1, 0, 0, 0, 4, 3],
             "bitLen": [2, 2, 2, 2, 2, 2, 4],
             "valueType": ["TYPE_HUMD", "TYPE_TEMP", "TYPE_GAS", "TYPE_GAS", "TYPE_GAS", "TYPE_PRES", "TYPE_Illuminance"],
-            "max": 3,
+            "max": 2,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
@@ -67,7 +67,7 @@
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_SolarRad"],
-            "max": 3,
+            "max": 2,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
@@ -124,7 +124,7 @@
             "index": [1, 2],
             "bitLen": [2, 2],
             "valueType": ["TYPE_WDSD", "TYPE_WDIR"],
-            "max": 3,
+            "max": 2,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
@@ -143,7 +143,7 @@
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_RAIN"],
-            "max": 3,
+            "max": 2,
             "cmd": {
                 "getAddress": ["0xFA", "0x03", "0x00", "0x66", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x00", "0x66", "0x00", "0xff"],
@@ -162,7 +162,7 @@
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_Actuator"],
-            "max": 3,
+            "max": 2,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
@@ -181,7 +181,7 @@
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_Range"],
-            "max": 3,
+            "max": 4,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
@@ -196,17 +196,17 @@
             "addr": "0x44",
             "len": 1,
             "supportRate": [0, 2400, 4800, 9600],
-            "divisor": [1],
+            "divisor": [10],
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_CO2"],
-            "max": 3,
+            "max": 2,
             "cmd": {
-                "getAddress": ["0xFA", "0x03", "0x00", "0x61", "0x00", "0x0A"],
-                "setAddress": ["0xff", "0x06", "0x00", "0x66", "0x00", "0xff"],
-                "getBaudrate": ["0xff", "0x03", "0x00", "0x67", "0x00", "0x0A"],
-                "setBaudrate": ["0xff", "0x06", "0x00", "0x67", "0x00", "0x0A"],
-                "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x02"],
+                "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x07", "0xD1", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x07", "0xD1", "0x00", "0xff"],
+                "getData": ["0x01", "0x03", "0x00", "0x0F", "0x00", "0x01"],
                 "getCtrl": ["0x00"]
             }
         },
@@ -219,13 +219,13 @@
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_NH3"],
-            "max": 3,
+            "max": 2,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
                 "getBaudrate": ["0xff", "0x03", "0x07", "0xD1", "0x00", "0x01"],
                 "setBaudrate": ["0xff", "0x06", "0x07", "0xD1", "0x00", "0xff"],
-                "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x01"],
+                "getData": ["0x01", "0x03", "0x00", "0x62", "0x00", "0x01"],
                 "getCtrl": ["0x00"]
             }
         },
@@ -286,9 +286,28 @@
                 "getCtrl": ["0x00"]
             }
         },
+        "dac10v": {
+            "name": "dac10v",
+            "addr": "0x80",
+            "len": 1,
+            "supportRate": [1200, 2400, 4800, 9600],
+            "divisor": [1000,1000,1000,1000],
+            "index": [1],
+            "bitLen": [2],
+            "valueType": ["TYPE_DAC10V"],
+            "max": 1,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x01", "0x00", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x01", "0x00", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x01", "0x02", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x01", "0x02", "0x00", "0x01"],
+                "getData": ["0x00"],
+                "getCtrl": ["0xff", "0x10", "0x00", "0x50", "0x00" ,"0x01", "0x02", "0xff", "0xff"]
+            }
+        },
         "dac10v4": {
             "name": "dac10v4",
-            "addr": "0x80",
+            "addr": "0x81",
             "len": 4,
             "supportRate": [1200, 2400, 4800, 9600],
             "divisor": [1000,1000,1000,1000],
@@ -301,13 +320,13 @@
                 "setAddress": ["0xff", "0x06", "0x01", "0x00", "0x00", "0xff"],
                 "getBaudrate": ["0xff", "0x03", "0x01", "0x02", "0x00", "0x01"],
                 "setBaudrate": ["0xff", "0x06", "0x01", "0x02", "0x00", "0x01"],
-                "getData": ["0x01", "0x03", "0x00", "0x20", "0x00", "0x04"],
+                "getData": ["0x00"],
                 "getCtrl": ["0xff", "0x10", "0x00", "0x50", "0x00" ,"0x01", "0x02", "0xff", "0xff"]
             }
         },
         "dac10v16": {
             "name": "dac10v16",
-            "addr": "0x81",
+            "addr": "0x82",
             "len": 1,
             "supportRate": [1200, 2400, 4800, 9600],
             "divisor": [1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000,1000],
@@ -320,7 +339,7 @@
                 "setAddress": ["0xff", "0x06", "0x01", "0x00", "0x00", "0xff"],
                 "getBaudrate": ["0xff", "0x03", "0x01", "0x02", "0x00", "0x01"],
                 "setBaudrate": ["0xff", "0x06", "0x01", "0x02", "0x00", "0x01"],
-                "getData": ["0x01", "0x03", "0x00", "0x20", "0x00", "0x10"],
+                "getData": ["0x00"],
                 "getCtrl": ["0xff", "0x10", "0x00", "0x50", "0x00" ,"0x01", "0x02", "0xff", "0xff"]
             }
         }
