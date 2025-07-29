@@ -1,5 +1,5 @@
 {
-    "version": "0.0.6",
+    "version": "0.0.7",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -286,6 +286,25 @@
                 "getCtrl": ["0x00"]
             }
         },
+        "waterflow": {
+            "name": "waterflow",
+            "addr": "0x58",
+            "len": 4, 
+            "supportRate": [2400, 4800, 9600],
+            "divisor": [100,100],
+            "index": [1,2],
+            "bitLen": [2,2],
+            "valueType": ["TYPE_LiquidFlow","TYPE_TotalFlow"],
+            "max": 4,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x00", "0x05", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x00", "0x05", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x00", "0x04", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x00", "0x04", "0x00", "0x01"],
+                "getData": ["0xff", "0x03", "0x00", "0x09", "0x00", "0x02"],
+                "getCtrl": ["0xff", "0x10", "0x00", "0x0C", "0x00", "0x03", "0x06", "0x00", "0x00","0x00","0x00","0x00","0x00"]
+            }
+        },
         "dac10v": {
             "name": "dac10v",
             "addr": "0x80",
@@ -341,6 +360,44 @@
                 "setBaudrate": ["0xff", "0x06", "0x01", "0x02", "0x00", "0x01"],
                 "getData": ["0x00"],
                 "getCtrl": ["0xff", "0x10", "0x00", "0x50", "0x00" ,"0x01", "0x02", "0xff", "0xff"]
+            }
+        },
+        "ammeter2x": {
+            "name": "ammeter2x",
+            "addr": "0x83",
+            "len": 2,
+            "supportRate": [9600],
+            "divisor": [10],
+            "index": [1],
+            "bitLen": [4],
+            "valueType": ["TYPE_kWh"],
+            "max": 1,
+            "cmd": {
+                "getAddress": ["0x00"],
+                "setAddress": ["0x00"],
+                "getBaudrate": ["0x00"],
+                "setBaudrate": ["0x00"],
+                "getData": ["0xff", "0x03", "0x10", "0x1e", "0x00", "0x02"],
+                "getCtrl": ["0x00"]
+            }
+        },
+        "ammeter3x": {
+            "name": "ammeter3x",
+            "addr": "0x84",
+            "len": 2, 
+            "supportRate": [9600],
+            "divisor": [10],
+            "index": [1],
+            "bitLen": [4],
+            "valueType": ["TYPE_Energy"],
+            "max": 1,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x00", "0x2e", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x10", "0x00", "0x2e", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x00", "0x2d", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x10", "0x00", "0x2d", "0x00", "0x01"],
+                "getData": ["0xff", "0x03", "0x10", "0x1e", "0x00", "0x02"],
+                "getCtrl": ["0x00"]
             }
         }
     }
