@@ -291,9 +291,9 @@
             "addr": "0x58",
             "len": 6, 
             "supportRate": [2400, 4800, 9600],
-            "divisor": [100,100],
+            "divisor": [42,42],
             "index": [1,2],
-            "bitLen": [3,3],
+            "bitLen": [6,6],
             "valueType": ["TYPE_LiquidFlow","TYPE_TotalFlow"],
             "max": 4,
             "cmd": {
