@@ -1,5 +1,5 @@
 {
-    "version": "0.0.7",
+    "version": "0.0.8",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -134,6 +134,25 @@
                 "getCtrl": ["0x00"]
             }
         },
+        "ec":{
+            "name": "ec",
+            "addr": "0x34",
+            "len": 2,
+            "supportRate": [9600],
+            "divisor": [1000, 10],
+            "index": [1, 2],
+            "bitLen": [2, 2],
+            "valueType": ["TYPE_EC", "TYPE_TEMP"],
+            "max": 2,
+            "cmd": {
+                "getAddress": ["0xfe", "0x03", "0x00", "0x50", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x00", "0x50", "0x00", "0xff"],
+                "getBaudrate": ["0x00"],
+                "setBaudrate": ["0x00"],
+                "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x02"],
+                "getCtrl": ["0x00"]
+            }
+        },
         "xm9505": {
             "name": "xm9505",
             "addr": "0x38",
@@ -229,6 +248,25 @@
                 "getCtrl": ["0x00"]
             }
         },
+        "water3in1":{                                                                                                                        
+            "name": "water3in1",
+            "addr": "0x4C",
+            "len": 3,
+            "supportRate": [9600],
+            "divisor": [100,1000, 10], 
+            "index": [1, 2, 3],
+            "bitLen": [2, 2, 2],
+            "valueType": ["TYPE_PH", "TYPE_EC", "TYPE_TEMP"],
+            "max": 2,
+            "cmd": {
+                "getAddress": ["0xfe", "0x03", "0x00", "0x50", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x00", "0x50", "0x00", "0xff"],
+                "getBaudrate": ["0x00"],
+                "setBaudrate": ["0x00"],
+                "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x03"],
+                "getCtrl": ["0x00"]
+            }
+        },  
         "thermometer": {
             "name": "thermometer",
             "addr": "0x50",
@@ -290,7 +328,7 @@
             "name": "waterflow",
             "addr": "0x58",
             "len": 6, 
-            "supportRate": [2400, 4800, 9600],
+            "supportRate": [2400, 4800, 9600, 19200, 38400, 57600, 115200],
             "divisor": [42,42],
             "index": [1,2],
             "bitLen": [6,6],
@@ -370,7 +408,7 @@
             "divisor": [10],
             "index": [1],
             "bitLen": [4],
-            "valueType": ["TYPE_kWh"],
+            "valueType": ["TYPE_Energy"],
             "max": 1,
             "cmd": {
                 "getAddress": ["0x00"],
