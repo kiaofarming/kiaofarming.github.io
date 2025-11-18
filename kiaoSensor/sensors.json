@@ -1,5 +1,5 @@
 {
-    "version": "0.0.8",
+    "version": "0.0.9",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -112,6 +112,25 @@
                 "getBaudrate": ["0xff", "0x03", "0x00", "0x31", "0x00", "0x01"],
                 "setBaudrate": ["0xff", "0x03", "0x00", "0x31", "0x00", "0x01"],
                 "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x03"],
+                "getCtrl": ["0x00"]
+            }
+        },
+        "soiltens": {
+            "name": "soiltens",
+            "addr": "0x28",
+            "len": 1,
+            "supportRate": [2400, 4800, 9600],
+            "divisor": [10],
+            "index": [1],
+            "bitLen": [2],
+            "valueType": ["TYPE_SoilTens"],
+            "max": 6,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
+                "getBaudrate": ["0x01", "0x03", "0x07", "0xD1", "0x00", "0x01"],
+                "setBaudrate": ["0x01", "0x06", "0x07", "0xD1", "0x00", "0x02"],
+                "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x02"],
                 "getCtrl": ["0x00"]
             }
         },
@@ -341,6 +360,44 @@
                 "setBaudrate": ["0xff", "0x06", "0x00", "0x04", "0x00", "0x01"],
                 "getData": ["0xff", "0x03", "0x00", "0x09", "0x00", "0x02"],
                 "getCtrl": ["0xff", "0x10", "0x00", "0x0C", "0x00", "0x03", "0x06", "0x00", "0x00","0x00","0x00","0x00","0x00"]
+            }
+        },
+        "XH3170-D": {
+            "name": "XH3170-D",
+            "addr": "0x5E",
+            "len": 1,
+            "supportRate": [1200,2400,4800,9600,19200],
+            "divisor": [1000],
+            "index": [1],
+            "bitLen": [2],
+            "valueType": ["TYPE_WEIGHT"],
+            "max": 6,
+            "cmd": {
+                "getAddress": ["0x00"],
+                "setAddress": ["0x00"],
+                "getBaudrate": ["0x00"],
+                "setBaudrate": ["0x00"],
+                "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x01"],
+                "getCtrl": ["0x00"]
+            }
+        },
+        "bt121b": {
+            "name": "bt121b",
+            "addr": "0x64",
+            "len": 1,
+            "supportRate": [1200,2400,4800,9600,19200],
+            "divisor": [1000],
+            "index": [1],
+            "bitLen": [2],
+            "valueType": ["TYPE_WEIGHT"],
+            "max": 6,
+            "cmd": {
+                "getAddress": ["0x1f", "0x03", "0x00", "0x20", "0x00", "0x01"],
+                "setAddress": ["0x1f", "0x06", "0x00", "0x20", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x00", "0x22", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x00", "0x22", "0x00", "0x01"],
+                "getData": ["0xff", "0x03", "0x00", "0x00", "0x00", "0x01"],
+                "getCtrl": ["0x00"]
             }
         },
         "dac10v": {
