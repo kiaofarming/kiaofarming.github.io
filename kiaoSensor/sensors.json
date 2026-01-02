@@ -1,5 +1,5 @@
 {
-    "version": "0.0.9",
+    "version": "0.0.10",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -85,7 +85,7 @@
             "divisor": [10, 10, 1000],
             "index": [1, 2, 3],
             "bitLen": [2, 2, 2],
-            "valueType": ["TYPE_SoilTEMP", "TYPE_SoilHUMD", "TYPE_SoilEC"],
+            "valueType": ["TYPE_SoilHUMD", "TYPE_SoilTEMP", "TYPE_SoilEC"],
             "max": 6,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
