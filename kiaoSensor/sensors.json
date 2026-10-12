@@ -1,5 +1,5 @@
 {
-    "version": "0.0.10",
+    "version": "0.0.11",
     "sensors": {
         "relay4": {
             "name": "relay4",
@@ -199,7 +199,7 @@
             "divisor": [1],
             "index": [1],
             "bitLen": [2],
-            "valueType": ["TYPE_Actuator"],
+            "valueType": ["TYPE_Raining"],
             "max": 2,
             "cmd": {
                 "getAddress": ["0xff", "0x03", "0x07", "0xD0", "0x00", "0x01"],
@@ -362,6 +362,26 @@
                 "getCtrl": ["0xff", "0x10", "0x00", "0x0C", "0x00", "0x03", "0x06", "0x00", "0x00","0x00","0x00","0x00","0x00"]
             }
         },
+        "waterLCDflow": {
+            "name": "waterLCDflow",
+            "addr": "0x5C",
+            "len": 4, 
+            "supportRate": [9600, 19200, 38400, 115200],
+            "divisor": [320010,320010],
+            "index": [1,2],
+            "bitLen": [4,4],
+            "valueType": ["TYPE_LiquidFlow","TYPE_TotalFlow"],
+            "max": 4,
+            "cmd": {
+                "getAddress": ["0xff", "0x03", "0x00", "0x13", "0x00", "0x01"],
+                "setAddress": ["0xff", "0x06", "0x00", "0x13", "0x00", "0xff"],
+                "getBaudrate": ["0xff", "0x03", "0x00", "0x12", "0x00", "0x01"],
+                "setBaudrate": ["0xff", "0x06", "0x00", "0x12", "0x00", "0x01"],
+                "getData": ["0xff", "0x03", "0x00", "0x20", "0x00", "0x02"],
+                "getCtrl": ["0xff", "0x10", "0x00", "0x0C", "0x00", "0x03", "0x06", "0x00", "0x00","0x00","0x00","0x00","0x00"]
+            }
+        },
+
         "XH3170-D": {
             "name": "XH3170-D",
             "addr": "0x5E",
