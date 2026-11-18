@@ -102,7 +102,7 @@
             "addr": "0x0A",
             "len": 1,
             "supportRate": [2400, 4800, 9600],
-            "divisor": [10],
+            "divisor": [1],
             "index": [1],
             "bitLen": [2],
             "valueType": ["TYPE_SolarRad"],
