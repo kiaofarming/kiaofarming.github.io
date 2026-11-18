@@ -1,5 +1,5 @@
 {
-    "version": "0.1.01",
+    "version": "0.1.02",
     "types": {
         "0": "TYPE_NON",
         "1": "TYPE_TEMP",
@@ -112,7 +112,7 @@
                 "setAddress": ["0xff", "0x06", "0x07", "0xD0", "0x00", "0xff"],
                 "getBaudrate": ["0x01", "0x03", "0x07", "0xD1", "0x00", "0x01"],
                 "setBaudrate": ["0x01", "0x06", "0x07", "0xD1", "0x00", "0x02"],
-                "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x02"],
+                "getData": ["0x01", "0x03", "0x00", "0x00", "0x00", "0x01"],
                 "getCtrl": ["0x00"]
             }
         },
